@@ -1,15 +1,15 @@
 <template>
     <div class="home">
-        <h1>test</h1>
-        <RSA></RSA>
+        <h1>hello world</h1>
+        <!--<RSA></RSA>-->
     </div>
 </template>
 
 <script>
-    import RSA from '@cp/RSAkey/index'
+    // import RSA from '@cp/RSAkey/index'
     export default {
         name: "yanglao",
-        components: {RSA},
+        // components: {RSA},
         data() {
             return {
 
