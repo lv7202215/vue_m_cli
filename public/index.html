@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>世纪芳华运营管理平台</title>
+    <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but SJFH_NEW doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+
+  </body>
+  <script>
+      // vw兼容性处理viewport-units-buggyfill
+      window.onload = function () {
+          window.viewportUnitsBuggyfill.init({ hacks: window.viewportUnitsBuggyfillHacks });
+      }
+  </script>
+</html>

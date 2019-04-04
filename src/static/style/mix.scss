@@ -1,0 +1,25 @@
+@mixin bg($positon:center,$size:cover) {
+  background-position: $positon;
+  background-size: $size;
+  background-repeat: no-repeat;
+}
+@mixin flex($dire:row,$just:center,$aligh:center) {
+  display: flex;
+  flex-direction: $dire;
+  justify-content: $just;
+  align-items: $aligh;
+}
+
+@mixin ab($top:0,$right:0,$bottom:0,$left:0){
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left
+}
+@mixin trans_center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
