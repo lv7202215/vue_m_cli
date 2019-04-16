@@ -1,14 +1,14 @@
 /**
- * Created by lzy on 2019/1/2
+ * Created by lzy on 2019/4/15
  */
-import Home from './index'
+const Home =() => import(/* webpackChunkName: "home-page" */ '@views/home/index')
 
 const HOME_ROUTERS =[
     {
         path: '/home',
         name: '首页',
         component: Home,
-        meta: {requireAuth: true},
+        meta: {requireAuth: false},
     },
 ]
 

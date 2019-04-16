@@ -25,6 +25,6 @@ function addStyleResource (rule) {
         .options({
             patterns: [
                 path.resolve(__dirname, './src/static/style/mix.scss'),
-                path.resolve(__dirname, './src/static/style/theme.scss'),
+                path.resolve(__dirname, './src/static/style/global.scss'),
             ],
         })}
