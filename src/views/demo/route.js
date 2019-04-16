@@ -13,7 +13,7 @@ const DEMO_ROUTERS =[
     },
     {
         path: '/detail',
-        name: '订单1',
+        name: '订单详情',
         component: DemoDetail,
         meta: {requireAuth: false,index:2},
     },

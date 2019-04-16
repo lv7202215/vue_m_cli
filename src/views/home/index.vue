@@ -5,7 +5,7 @@
                 <img src="@as/img/no_card.png" alt="">
                 <div class="user_info">
                     <p>你好，游客</p>
-                    <p>点击绑卡</p>
+                    <p>点击登陆</p>
                 </div>
             </div>
         </div>
@@ -16,9 +16,15 @@
             </ul>
         </div>
         <div class="box">
-            <h2>必备工具</h2>
+            <h2>我的优惠券</h2>
             <ul>
                 <li v-for="(item,index) in list2" :key="index"><img src="@as/img/ico.png" alt=""><span>{{item}}</span></li>
+            </ul>
+        </div>
+        <div class="box">
+            <h2>设置</h2>
+            <ul>
+                <li v-for="(item,index) in list3" :key="index"><img src="@as/img/ico.png" alt=""><span>{{item}}</span></li>
             </ul>
         </div>
     </div>
@@ -29,8 +35,9 @@
         name: "index",
         data() {
             return {
-                list: ['订单1', '订单2', '订单3'],
-                list2: ['我的分享', '我的金融', '收货地址']
+                list: ['全部订单', '已支付', '未支付'],
+                list2: ['全部优惠券', '已过期', '未过期'],
+                list3: ['收获地址']
             }
         },
         mounted() {
@@ -56,7 +63,7 @@
             @include bg();
             .nocard{
                 @include flex(row,space-around);
-                height: rem(175);
+                height: rem(150);
                 img{
                     width: rem(60);
                     height: rem(60);

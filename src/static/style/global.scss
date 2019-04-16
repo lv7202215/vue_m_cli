@@ -10,17 +10,17 @@ $vw_design: 750;
 html {
   font-size: ($vw_fontsize / ($vw_design / 2)) * 100vw;
   // 同时，通过Media Queries 限制根元素最大最小值
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 300px) {
     font-size: 64px;
   }
-  @media screen and (min-width: 540px) {
+  @media screen and (min-width: 750px) {
     font-size: 108px;
   }
 }
 // body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小
 body {
-  max-width: 540px;
-  min-width: 320px;
+  max-width: 750px;
+  min-width: 300px;
 }
 
 
