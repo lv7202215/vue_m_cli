@@ -6,6 +6,7 @@
 import axios from 'axios';
 import {Toast} from 'mand-mobile';
 import store from '../store/index';
+import router from '../router/index'
 import base from './base'
 
 
@@ -26,24 +27,45 @@ if(token) axios.defaults.headers.common["token"] = token;
 axios.interceptors.request.use(
     config => {
         store.state.loading = true;
-        return config;
-    }
-);
-
-axios.interceptors.response.use(
-    response => {
-        const {errCode} = response.data;
-        if (errCode === 401) {
-            this.$router.push('/login');
-        }
-        store.state.loading = false;
-        return response
+        return config
     },
     error => {
-        store.state.loading = false;
+        setTimeout(() => {
+            store.state.loading = false;
+        }, 3000)
         return Promise.reject(error)
-    }
-);
+    })
+/**
+ * 响应拦截器
+ */
+axios.interceptors.response.use(
+    data => {
+        // 错误处理
+        switch (data.data.result) {
+            // 401: 未登录状态，跳转登录页
+            case 401:
+                break;
+            // 403 token过期
+            // 清除token并跳转登录页
+            case 403:
+                console.log('登录过期，请重新登录');
+                break;
+            // 404请求不存在
+            case 404:
+                this.$router.push({path:'/404'})
+                break;
+            default:
+        }
+        // 响应成功关闭loading
+        store.state.loading = false;
+        return data
+    },
+    error => {
+        setTimeout(() => {
+            store.state.loading = false;
+        }, 1000)
+        return Promise.reject(error)
+    })
 
 export default {
     get(url, params) {
@@ -69,7 +91,6 @@ export default {
                 method: 'post',
                 url: url,
                 data: params
-
             }).then(res => {
                 if (res.data.errCode !== 0) Toast.failed(res.data.errMsg);
                 else resolve(res.data)
@@ -79,55 +100,5 @@ export default {
             })
         })
     },
-
-    exportExcel(url, params, filename) {
-        return new Promise((resolve, reject) => {
-            axios({
-                method: 'post',
-                url: url,
-                data: params,
-                responseType: 'blob',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => {
-                resolve();
-                const blob = new Blob([res.data]);
-                const ua = navigator.userAgent.toLowerCase();
-                if (/(ie|edge)/.test(ua) || "ActiveXObject" in window)
-                    navigator.msSaveBlob(blob, filename);
-                else
-                {
-                    const fileName = filename;
-                    const elink = document.createElement('a');
-                    elink.download = fileName;
-                    elink.style.display = 'none';
-                    elink.href = URL.createObjectURL(blob);
-                    document.body.appendChild(elink);
-                    elink.click();
-                    URL.revokeObjectURL(elink.href); // 释放URL 对象
-                    document.body.removeChild(elink);
-                }
-
-            }, err => {
-                reject(err);
-                Toast.failed(err.message);
-            })
-        })
-    },
-
-    upload(url, params) {
-        let conf = {
-            headers:{'Content-Type': 'multipart/form-data'}
-        };
-        return new Promise((resolve, reject) => {
-            axios.post(url, params, conf).then(res => {
-                resolve(res.data)
-            },err => {
-                reject(err);
-                Toast.failed(err.message);
-            })
-        })
-    }
 }
 

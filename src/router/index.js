@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const Index = () => import( '@views/layout/index')
+const Index = () => import( '@views/layout/index');
 import HOME_ROUTERS from '../views/home/route'
 import DEMO_ROUTERS from '../views/demo/route'
 
@@ -18,9 +18,10 @@ const router = new Router({
                 ...DEMO_ROUTERS
             ],
             meta: {
-                requireAuth: true // 添加该字段，表示进入这个路由是需要登录的
+                index:0, // 层级，用于判断过渡动画的效果
+                requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
             }
-        },
+        }
     ]
 })
 

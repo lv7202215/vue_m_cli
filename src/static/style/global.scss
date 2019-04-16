@@ -1,6 +1,5 @@
 // 主题色配置
 $theme-color:#4fc08d;
-
 // rem 单位换算：定为 75px 只是方便运算，750px-75px、640-64px、1080px-108px，如此类推
 $vw_fontsize: 75; // iPhone 6尺寸的根元素大小基准值
 @function rem($px) {
@@ -22,4 +21,25 @@ html {
 body {
   max-width: 540px;
   min-width: 320px;
+}
+
+
+
+
+// mand-mobile
+
+// form
+.md-field{
+  padding:0;
+  margin: 0;
+}
+.md-field-item-title,.md-field-item-control{
+  font-size: rem(18);
+}
+.md-field-item-right .md-icon.icon-font.md{
+  font-size: rem(16);
+}
+.md-field-item-content{
+  min-height: inherit;
+  padding:rem(20) rem(10);
 }

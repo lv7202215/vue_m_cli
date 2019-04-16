@@ -1,7 +1,8 @@
+import createPersistedState from 'vuex-persistedstate'
 import Vue from 'vue'
 import Vuex from 'vuex'
 // 用户信息模块
-import user from './modules/user';
+import demo from './modules/demo';
 Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
@@ -14,6 +15,10 @@ export default new Vuex.Store({
 
     },
     modules: {
-        user,
-    }
+        demo,
+    },
+    plugins: [createPersistedState({
+        // vuex持久化插件
+        storage: window.sessionStorage
+    })]
 })

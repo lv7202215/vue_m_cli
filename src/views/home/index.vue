@@ -2,7 +2,7 @@
     <div class="home">
         <div class="top">
             <div class="nocard">
-                <img src="@as/no_card.png" alt="">
+                <img src="@as/img/no_card.png" alt="">
                 <div class="user_info">
                     <p>你好，游客</p>
                     <p>点击绑卡</p>
@@ -12,13 +12,13 @@
         <div class="box">
             <h2>我的订单</h2>
             <ul>
-                <li v-for="(item,index) in list" :key="index"><img src="@as/ico.png" alt=""><span>{{item}}</span></li>
+                <li @click="goList()" v-for="(item,index) in list" :key="index"><img src="@as/img/ico.png" alt=""><span>{{item}}</span></li>
             </ul>
         </div>
         <div class="box">
             <h2>必备工具</h2>
             <ul>
-                <li v-for="(item,index) in list2" :key="index"><img src="@as/ico.png" alt=""><span>{{item}}</span></li>
+                <li v-for="(item,index) in list2" :key="index"><img src="@as/img/ico.png" alt=""><span>{{item}}</span></li>
             </ul>
         </div>
     </div>
@@ -36,7 +36,11 @@
         mounted() {
 
         },
-        methods: {},
+        methods: {
+            goList(){
+                this.$router.push('/demo')
+            }
+        },
     }
 </script>
 
@@ -48,7 +52,7 @@
         .top{
             color: #fff;
             font-size: rem(16);
-            background: url("../../assets/bg.png");
+            background: url("../../assets/img/bg.png");
             @include bg();
             .nocard{
                 @include flex(row,space-around);
