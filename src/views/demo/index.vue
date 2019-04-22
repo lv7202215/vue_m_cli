@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li class="item" v-for="(item,index) in listData" :key="index" @click="toDetail(item.id)">
-            <b>{{item.name}}</b>
+            <p>{{item.name}}</p>
             <p>{{item.url}}</p>
             <p>{{item.email}}</p>
         </li>
@@ -32,8 +32,12 @@
 </script>
 
 <style scoped lang="scss">
+    p{
+        margin: 0;
+        line-height: 2.5;
+    }
     .item{
-        font-size: rem(16);
+        /*font-size: rem(16);*/
         line-height: 1.2;
         border-bottom: rem(1) solid #F1F1F1;
         padding:0 rem(10);

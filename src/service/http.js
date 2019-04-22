@@ -4,7 +4,6 @@
  * create by lvzhiyang
  */
 import axios from 'axios';
-import {Toast} from 'mand-mobile';
 import store from '../store/index';
 import router from '../router/index'
 import base from './base'
@@ -77,11 +76,11 @@ export default {
 
             }).then(res => {
                 // console.log(res);
-                if (res.data.errCode !== 0) Toast.failed(res.data.errMsg);
+                if (res.data.errCode !== 0) this.$toast.fail(res.data.errMsg);
                 else resolve(res.data);
             }, err => {
                 reject(err);
-                Toast.failed(err.message);
+                this.$toast.fail(err.message);
             });
         });
     },
@@ -92,11 +91,11 @@ export default {
                 url: url,
                 data: params
             }).then(res => {
-                if (res.data.errCode !== 0) Toast.failed(res.data.errMsg);
+                if (res.data.errCode !== 0) this.$toast.fail(res.data.errMsg);
                 else resolve(res.data)
             }, err => {
                 reject(err);
-                Toast.failed(err.message);
+                this.$toast.fail(err.message);
             })
         })
     },

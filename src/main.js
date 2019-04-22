@@ -4,13 +4,12 @@ import router from './router/index'
 import store from './store/index'
 import utils from  './static/js/utils'
 import {JSEncrypt} from 'jsencrypt'
+import NutUI from '@nutui/nutui';
+import '@nutui/nutui/dist/nutui.css';
+NutUI.install(Vue)
 import http from '@/service/http'
-import mandMobile from 'mand-mobile'
-import 'mand-mobile/lib/mand-mobile.css'
 import './static/style/nomal.css'// 初始化样式
-import './static/style/global.scss'
-import './static/style/mix.scss'
-const plugins = [utils,mandMobile]; // 插件列表
+const plugins = [utils]; // 插件列表
 plugins.map(plg => Vue.use(plg)); // 引入插件
 Vue.config.productionTip = false
 Object.assign(Vue.prototype,{$http:http});

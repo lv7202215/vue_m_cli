@@ -1,10 +1,8 @@
 <template>
     <div>
-        <md-field>
-            <md-field-item solid title="姓名" :content="this.formData.name"/>
-            <md-field-item solid title="地址" :content="this.formData.address" />
-            <md-field-item solid title="邮箱" :content="this.formData.email" />
-        </md-field>
+        <nut-cell title = "姓名"  :desc = "this.formData.name"></nut-cell>
+        <nut-cell title = "地址"  :desc = "this.formData.address" :showIcon = "true"></nut-cell>
+        <nut-cell title = "邮箱"  :desc = "this.formData.email"></nut-cell>
     </div>
 </template>
 

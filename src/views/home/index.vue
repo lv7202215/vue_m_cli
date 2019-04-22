@@ -37,7 +37,7 @@
             return {
                 list: ['全部订单', '已支付', '未支付'],
                 list2: ['全部优惠券', '已过期', '未过期'],
-                list3: ['收获地址']
+                list3: ['收货地址']
             }
         },
         mounted() {
@@ -52,10 +52,10 @@
 </script>
 
 <style scoped lang="scss">
+    h2{
+        font-size: rem(18);
+    }
     .home {
-        h1 {
-            font-size: rem(28);
-        }
         .top{
             color: #fff;
             font-size: rem(16);
@@ -79,6 +79,7 @@
             ul{
                 display: flex;
                 li{
+                    width: 33%;
                     @include flex(column);
                     margin: rem(15);
                 }
