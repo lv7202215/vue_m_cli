@@ -9,6 +9,8 @@
   -  [VueCli3](https://cli.vuejs.org/)
 
 * 开发：跟普通的移动端单页开发方式一致。
+  - 通过npm安装sass依赖可能会报错；建议通过yarn安装, 
+  ```yarn install```
 
 * 调试：
 
