@@ -10,7 +10,7 @@
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@nutui/nutui": "^2.1.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "jsencrypt": "^3.0.0-rc.1",
     "style-resources-loader": "^1.2.1",
     "vue": "^2.6.10",
